@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <nav class='navbar navbar-expand-md navbar-light bg-light'>
-      <Link to='/' class='navbar-brand'>
+    <nav className='navbar navbar-expand-md navbar-light bg-light'>
+      <Link to='/' className='navbar-brand'>
         ReactShop
       </Link>
       <button
-        class='navbar-toggler'
+        className='navbar-toggler'
         type='button'
         data-toggle='collapse'
         data-target='#navbarText'
@@ -16,22 +16,22 @@ const NavBar = () => {
         aria-expanded='false'
         aria-label='Toggle navigation'
       >
-        <span class='navbar-toggler-icon'></span>
+        <span className='navbar-toggler-icon'></span>
       </button>
-      <div class='collapse navbar-collapse' id='navbarText'>
-        <ul class='navbar-nav mr-auto'>
-          <li class='nav-item active'>
-            <Link to='/' class='nav-link'>
+      <div className='collapse navbar-collapse' id='navbarText'>
+        <ul className='navbar-nav mr-auto'>
+          <li className='nav-item active'>
+            <Link to='/' className='nav-link'>
               Shop
             </Link>
           </li>
-          <li class='nav-item'>
-            <Link to='/cart' class='nav-link'>
+          <li className='nav-item'>
+            <Link to='/cart' className='nav-link'>
               Cart
             </Link>
           </li>
-          <li class='nav-item'>
-            <Link to='/about' class='nav-link'>
+          <li className='nav-item'>
+            <Link to='/about' className='nav-link'>
               About
             </Link>
           </li>
