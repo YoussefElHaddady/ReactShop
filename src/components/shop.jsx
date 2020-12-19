@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import ProductCard from './product-card';
+
 const Shop = () => {
   useEffect(() => {
     fetchProducts();
@@ -15,11 +17,13 @@ const Shop = () => {
   };
 
   return (
-    <div>
-      <h1>Shop</h1>
-      {products.map((prod) => (
-        <h2 key={prod.id}>{prod.title}</h2>
-      ))}
+    <div className='mx-auto p-5'>
+      <h1 className='mb-5'>Our products</h1>
+      <div className='d-flex flex-wrap justify-content-center'>
+        {products.map((prod) => (
+          <ProductCard key={prod.id} prod={prod} />
+        ))}
+      </div>
     </div>
   );
 };
