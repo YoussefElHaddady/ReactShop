@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ prod }) => {
   return (
@@ -7,7 +8,11 @@ const ProductCard = ({ prod }) => {
         src={prod.image}
         alt={prod.title}
         className='card-img-top'
-        style={{ objectFit: 'contain', maxHeight: '20rem', height: '20rem' }}
+        style={{
+          objectFit: 'contain',
+          maxHeight: '20rem',
+          height: '20rem',
+        }}
       />
       <div className='card-body'>
         <h5
@@ -25,11 +30,19 @@ const ProductCard = ({ prod }) => {
         </h6>
         <p
           className='card-text overflow-hidden'
-          style={{ maxHeight: '5rem', height: '5rem', minHeight: '5rem' }}
+          style={{
+            height: '3rem',
+            minHeight: '1rem',
+            whiteSpace: 'normal',
+            textOverflow: 'ellipsis',
+          }}
         >
           {prod.description}
         </p>
         <button className='btn btn-primary'>Add to my cart</button>
+        <Link to={`/products/${prod.id}`} className='card-link ml-3'>
+          Details...
+        </Link>
       </div>
     </div>
   );

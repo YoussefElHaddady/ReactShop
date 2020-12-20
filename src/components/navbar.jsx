@@ -21,7 +21,7 @@ const NavBar = () => {
       <div className='collapse navbar-collapse' id='navbarText'>
         <ul className='navbar-nav mr-auto'>
           <li className='nav-item active'>
-            <Link to='/' className='nav-link'>
+            <Link to='/products' className='nav-link'>
               Shop
             </Link>
           </li>
