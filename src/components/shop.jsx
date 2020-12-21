@@ -17,7 +17,7 @@ const Shop = () => {
   };
 
   return (
-    <div className='mx-auto p-5'>
+    <div>
       <h1 className='mb-5'>Our products</h1>
       <div className='d-flex flex-wrap justify-content-center'>
         {products.map((prod) => (

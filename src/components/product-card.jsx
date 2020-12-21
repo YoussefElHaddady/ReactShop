@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { CartProductsContext } from '../context/cartProducts';
+
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({ prod }) => {
+  const [cartProducts, setCartProducts] = useContext(CartProductsContext);
+
+  const addToCart = (p) => {
+    const cp = [...cartProducts];
+    const foundProd = cp.find((pp) => pp.id === p.id);
+
+    if (foundProd) {
+      foundProd.quantity++;
+      // cp[index] = { ...foundProd };
+      setCartProducts([...cp]);
+    } else {
+      p.quantity = 1;
+      setCartProducts([...cp, p]);
+    }
+  };
+
   return (
     <div className='card mx-4 my-3' style={{ width: '18rem' }}>
       <img
@@ -39,7 +58,9 @@ const ProductCard = ({ prod }) => {
         >
           {prod.description}
         </p>
-        <button className='btn btn-primary'>Add to my cart</button>
+        <button className='btn btn-primary' onClick={(e) => addToCart(prod)}>
+          Add to my cart
+        </button>
         <Link to={`/products/${prod.id}`} className='card-link ml-3'>
           Details...
         </Link>

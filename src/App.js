@@ -7,6 +7,8 @@ import {
   Redirect,
 } from 'react-router-dom';
 
+import { CartProductsProvider } from './context/cartProducts';
+
 import NavBar from './components/navbar';
 import Shop from './components/shop';
 import ShoppingCart from './components/shopping-cart';
@@ -15,19 +17,23 @@ import ProductDetails from './components/product-details';
 
 function App() {
   return (
-    <Router>
-      <div className='App'>
-        <NavBar />
-        <Switch>
-          <Route path='/' exact component={Shop} />
-          <Route path='/products' exact component={Shop} />
-          <Route path='/products/:id' component={ProductDetails} />
-          <Route path='/cart' component={ShoppingCart} />
-          <Route path='/about' component={About} />
-          <Redirect to='/' />
-        </Switch>
-      </div>
-    </Router>
+    <CartProductsProvider>
+      <Router>
+        <div className='App'>
+          <NavBar />
+          <div className='mx-auto p-5'>
+            <Switch>
+              <Route path='/' exact component={Shop} />
+              <Route path='/products' exact component={Shop} />
+              <Route path='/products/:id' component={ProductDetails} />
+              <Route path='/cart' component={ShoppingCart} />
+              <Route path='/about' component={About} />
+              <Redirect to='/' />
+            </Switch>
+          </div>
+        </div>
+      </Router>
+    </CartProductsProvider>
   );
 }
 
