@@ -13,7 +13,6 @@ const ProductCard = ({ prod }) => {
 
     if (foundProd) {
       foundProd.quantity++;
-      // cp[index] = { ...foundProd };
       setCartProducts([...cp]);
     } else {
       p.quantity = 1;

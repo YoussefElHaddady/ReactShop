@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { CartProductsContext } from '../context/cartProducts';
 
-const ShoppingCartItem = ({ prod: product }) => {
+const ShoppingCartItem = ({ product }) => {
   const [cartProducts, setCartProducts] = useContext(CartProductsContext);
 
   const getBadgeClasses = () => {
@@ -26,15 +26,26 @@ const ShoppingCartItem = ({ prod: product }) => {
     }
   };
 
+  const handleDelete = () => {
+    const newCartProducts = cartProducts.filter((p) => p.id !== product.id);
+    setCartProducts([...newCartProducts]);
+  };
+
   return (
     <div>
       <span>{product.title}</span>
-      <button className='btn btn-secondary btn-sm' onClick={handleDecreaseQte}>
+      <button
+        className='btn btn-secondary btn-sm ml-2'
+        onClick={handleDecreaseQte}
+      >
         -
       </button>
       <span className={getBadgeClasses()}>{product.quantity}</span>
       <button className='btn btn-secondary btn-sm' onClick={handleIncreaseQte}>
         +
+      </button>
+      <button className='btn btn-danger btn-sm ml-2' onClick={handleDelete}>
+        delete
       </button>
     </div>
   );
